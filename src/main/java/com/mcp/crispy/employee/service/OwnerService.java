@@ -1,5 +1,6 @@
 package com.mcp.crispy.employee.service;
 
+import com.mcp.crispy.email.service.EmailService;
 import com.mcp.crispy.employee.dto.OwnerRegisterDto;
 import com.mcp.crispy.employee.dto.Position;
 import com.mcp.crispy.employee.mapper.OwnerMapper;
@@ -18,6 +19,7 @@ import static com.mcp.crispy.common.utils.RandomCodeUtils.generateTempPassword;
 public class OwnerService {
 
     private final OwnerMapper ownerMapper;
+    private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -39,6 +41,8 @@ public class OwnerService {
         log.info("registerDto, frn: {}", frnNo);
         log.info("registerDto, posNo: {}", registerDto.getPosNo());
         ownerMapper.insertOwner(ownerRegisterDto);
+
+        emailService.sendTempPasswordEmail(ownerRegisterDto.getEmpEmail(), tempPassword);
         return registerDto.getEmpNo();
     }
 }
