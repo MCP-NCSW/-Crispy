@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mcp.crispy.employee.mapper.EmployeeMapper">
+    <insert id="insertEmployee" parameterType="EmployeeDto">
+        <selectKey keyProperty="empNo" resultType="int" order="BEFORE">
+            SELECT SEQ_EMPLOYEE_T.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO EMPLOYEE_T (
+                EMP_NO,
+                EMP_ID,
+                EMP_PW,
+                EMP_NAME,
+                EMP_EMAIL,
+                EMP_PHONE,
+                EMP_PROFILE,
+                EMP_STAT,
+                FRN_NO,
+                POS_NO)  VALUES (
+        #{empNo},
+        #{empId},
+        #{empPw},
+        #{empName},
+        #{empEmail},
+        #{empPhone},
+        #{empProfile, jdbcType=VARCHAR},
+        #{empStat, typeHandler=com.mcp.crispy.common.typehandler.EmpStatusTypeHandler},
+        0,
+        #{posNo, typeHandler=com.mcp.crispy.common.typehandler.PositionTypeHandler}
+        )
+    </insert>
+
+    <insert id="">
+
+    </insert>
+</mapper>

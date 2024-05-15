@@ -10,11 +10,16 @@ public class OwnerController {
 
     @GetMapping("/employee/register")
     public String registerEmployee() {
-        return "employee-register";
+        return "owner/employee-register";
     }
 
     @GetMapping("/employees")
-    public String owner() {
+    public String getListEmployees() {
         return "owner/employees";
+    }
+
+    @GetMapping("/employee")
+    public String employee() {
+        return "owner/employee-detail";
     }
 }

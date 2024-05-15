@@ -109,6 +109,10 @@
 .info-wrap input{
     width: 200px;
 }
+.info-wrap span {
+    width: 100px;
+    font-size: 1.3rem;
+}
 
 .info-wrap div {
     margin-top: 10px;
@@ -214,10 +218,16 @@
 }
 
 .btn-change-address,
-#add-approval{
+#add-approval,
+#sign-approval{
     color: #fff;
     padding: 5px 10px;
     border-radius: 7px;
     border: 0;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: var(--main-color);
+    color: #fff;
 }

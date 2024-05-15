@@ -8,15 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/crispy/employee")
 public class EmployeeController {
 
-	@GetMapping("/signup")
-	public String signup() {
-		return "employee/signup";
-	}
-
-	@GetMapping("/login")
-	public String login() {
-		return "employee/login";
-	}
 
 	@GetMapping("/find/username")
 	public String findUsername() {
@@ -38,9 +29,9 @@ public class EmployeeController {
 		return "employee/find-username-result";
 	}
 
-	@GetMapping("/mypage")
+	@GetMapping("/profile")
 	public String getEmployee() {
-		return "employee/employee";
+		return "employee/employee-profile";
 	}
 
 }

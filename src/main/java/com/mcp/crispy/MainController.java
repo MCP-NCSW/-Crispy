@@ -13,48 +13,13 @@ public class MainController {
 		return "index";
 	}
 
-	@GetMapping("/tables")
-	public String Board() {
-		return "pages/tables";
+	@GetMapping("/signup")
+	public String signup() {
+		return "signup";
 	}
 
-	@GetMapping("/tables2")
-	public String Board2() {
-		return "pages/tables2";
-	}
-
-	@GetMapping("/billing")
-	public String Billing() {
-		return "pages/billing";
-	}
-
-	@GetMapping("/virtual-reality")
-	public String Virtualreality() {
-		return "pages/virtual-reality";
-	}
-
-	@GetMapping("/rtl")
-	public String Rtl() {
-		return "pages/rtl";
-	}
-
-	@GetMapping("/profile")
-	public String Profile() {
-		return "pages/profile";
-	}
-
-	@GetMapping("/sign-in")
-	public String SignIn() {
-		return "pages/sign-in";
-	}
-
-	@GetMapping("/sign-up")
-	public String SignUp() {
-		return "pages/sign-up";
-	}
-	
-	@GetMapping("/calendar")
-	public String CalendarTest() {
-		return "calendar/calendar";
+	@GetMapping("/login")
+	public String login() {
+		return "login";
 	}
 }
