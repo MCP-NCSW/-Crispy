@@ -29,15 +29,14 @@
 
 #boardTitle {
 	height: 4rem;
-	font-size: 1.7rem;
+	font-size: 1.5rem;
 	margin-bottom:10px;
 }
 
-#summernote {
+#boardContent {
 	margin-top:20px;
 	height: 20rem;
-	width:300px !important;
-	font-size: 1.7rem;
+	font-size: 1.5rem;
 	resize: none;
 }
 
@@ -62,35 +61,4 @@
 }
 #cate{
 	height:3rem;
-}
-
-/* 문서 작성 form */
-#text-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-}
-
-.note-editor {width: 1000px;}
-
-/* 에디터 상단 버튼 */
-.note-toolbar button {
-    color: initial !important;
-    background-color: #fff !important;
-    border-color: #ddd !important;
-}
-.note-editable {height: 1275px !important;}
-
-/* 파일 선택 */
-.file-attach {
-    display: flex;
-    width: 1000px;
-    margin-top: 20px;
-}
-.note-editable{
-	
-	width:800px !important;
-	height:500px !important;
 }
