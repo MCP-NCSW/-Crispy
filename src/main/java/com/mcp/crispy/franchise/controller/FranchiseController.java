@@ -24,7 +24,7 @@ public class FranchiseController {
     }
     
     @GetMapping("franchise-list")
-    public String listFranchise() {
+    public String listFranchise1() {
     	return "franchise/franchise-list";
     }
     
