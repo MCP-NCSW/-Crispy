@@ -49,8 +49,13 @@
 }
 
 /* 행 hover */
+<<<<<<< HEAD
 .area5 .franchise-list tbody tr:hover td {
     background-color: #fd834045;
+=======
+.area5 .approval-list tbody tr:hover td {
+    background-color: rgba(200, 200, 200, 0.2);
+>>>>>>> f6f70863eb6738e02eef1d8266732169f61c3dbf
     cursor: pointer;
 }
 
