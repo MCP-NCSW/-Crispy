@@ -5,7 +5,9 @@
 }
 
 /* 페이지 제목 */
-.franchise-list h1 {font-size: 2.5rem;}
+.franchise-list h1 {
+    font-size: 2.5rem;
+}
 
 /* 상단 영역 */
 .franchise-list .top-area {
@@ -45,7 +47,9 @@
 }
 
 /* 상단 영역 margin-left */
-.franchise-list .m-left {margin-left: 7px;}
+.franchise-list .m-left {
+    margin-left: 7px;
+}
 
 /* 문서 목록 테이블 */
 .franchise-list table {
@@ -54,10 +58,13 @@
 }
 
 /* 기안일 정렬 */
-.franchise-list .col-sort {position: relative;}
+.franchise-list .col-sort {
+    position: relative;
+}
 
 .franchise-list .fa-sort {
     position: absolute;
+    margin-right: 15px;
     top: 7px;
     right: 163px;
 }
@@ -82,7 +89,9 @@
     margin-top: 30px;
 }
 
-.franchise-list .page-link {color: var(--main-color);}
+.franchise-list .page-link {
+    color: var(--main-color);
+}
 
 .franchise-list .page-link:focus {
     z-index: 3;
@@ -98,3 +107,44 @@
     background-color: var(--main-color);
     border-color: var(--main-color);
 }
+
+.form-control {
+    height: 4rem;
+    font-size: 1.3rem;
+}
+
+.fs-5 {
+    font-size: 2rem !important;
+}
+
+#delete-btn, #modify-btn {
+    font-size: 1.5rem;
+}
+
+.create, .modify {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 11.3px;
+    margin-right: 187px;
+}
+
+.form-label {
+    font-size: 1.2rem;
+    margin-top: 12px;
+}
+
+.btn-close {
+    background-color: transparent !important;
+    font-size: 17px;
+}
+
+#fileImg {
+    padding: 10px;
+}
+
+#delete-btn {
+    background-color: var(--sub-color) !important;
+    border-color: #888888 !important;
+}
+

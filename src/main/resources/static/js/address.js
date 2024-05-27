@@ -32,7 +32,7 @@ function execPostCode() {
 
 }
 
-document.getElementById('add-approval').addEventListener('click', function() {
+document.getElementById('add-franchise').addEventListener('click', function() {
     document.getElementById('signature-modal').style.display = 'flex';
     resizeCanvas(); // Ensure canvas is resized appropriately when modal is shown
 });

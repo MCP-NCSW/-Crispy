@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:insert="~{layout/header :: header('Crispy')}"></th:block>
-    <link rel="stylesheet" href="/css/approval/approval-list.css" type="text/css">
+    <link rel="stylesheet" href="/css/franchise/franchise-list.css" type="text/css">
 </head>
 <body>
 <div class="crispy-container">
@@ -10,8 +10,8 @@
     <div>
         <header th:replace="~{layout/navbar :: navbar}"></header>
         <main>
-            <div class="approval-list">
-                <h1>결재 문서</h1>
+            <div class="franchise-list">
+                <h1>가맹점 관리</h1>
 
                 <!-- 상단 영역 -->
                 <div class="top-area">
@@ -19,51 +19,30 @@
                     <!-- 기안자 검색 -->
                     <div class="container-1">
                         <span class="icon"><i class="fa fa-search"></i></span>
-                        <input type="text" name="" id="search" class="form-control" placeholder="가맹점을 입력해주세요.">
+                        <input type="text" name="" id="search" class="form-control" placeholder="가맹점 명을 입력해주세요.">
                     </div>
-
-                    <!-- 휴가/휴직 구분 -->
-<!--                    <select class="form-select form-select-lg mb-3 m-left" aria-label="Large select example"
-                            name="stockCt">
-                        <option value="">구분</option>
-                        <option value="">휴가신청서</option>
-                        <option value="">휴직신청서</option>
-                    </select>-->
-
-                    <!-- 결재 상태 -->
-<!--                    <select class="form-select form-select-lg mb-3 m-left" aria-label="Large select example"
-                            name="stockCt" id="">
-                        <option value="">결재 상태</option>
-                        <option value="">대기</option>
-                        <option value="">진행중</option>
-                        <option value="">승인</option>
-                        <option value="">반려</option>
-                    </select>-->
                 </div>
 
-                <!-- 테이블 -->
+                <!-- 가맹점 테이블 -->
                 <table class="table">
                     <thead>
                     <tr>
+                        <th scope="col">가맹점 번호</th>
                         <th scope="col">가맹점 명</th>
                         <th scope="col">대표자</th>
-                        <th scope="col">가맹점</th>
-                        <th scope="col" class="col-sort">
-                            <span>가맹일</span>
-             <!--               <i class="fa-solid fa-sort"></i>-->
-                        </th>
-                        <th scope="col">우편번호</th>
+                        <th scope="col">가맹일</th>
+                        <th scope="col">도로명 주소</th>
                     </tr>
                     </thead>
 
-                    <!-- 리스트 -->
+                    <!-- 가맹점 리스트 -->
                     <tbody>
                     <tr>
-                        <td>교촌치킨</td>
+                        <td>1</td>
+                        <td>교촌치킨 - 강남점</td>
                         <td>홍길동</td>
-                        <td>강남점</td>
                         <td>2024-05-13</td>
-                        <td>서울시 강남구 1045-2</td>
+                        <td>서울시 강남구</td>
                     </tr>
                     </tbody>
 
@@ -112,45 +91,49 @@
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="franchiseName" class="form-label">가맹점 명</label>
-                        <input type="text" class="form-control" id="franchiseName" placeholder="가맹점 명을 입력해주세요." required>
+                        <input type="text" class="form-control" id="franchiseName" placeholder="가맹점 명을 입력해주세요." disabled>
                     </div>
                     <div class="col-sm-6">
-                        <label for="ownerName" class="form-label">대표자 명</label>
-                        <input type="text" class="form-control" id="ownerName" placeholder="대표자 명을 입력해주세요." required>
+                        <label for="ownerName" class="form-label">대표자</label>
+                        <input type="text" class="form-control" id="ownerName" placeholder="대표자 명을 입력해주세요." disabled>
                     </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="phone" class="form-label">전화번호</label>
-                        <input type="text" class="form-control" id="phone" placeholder="전화번호를 입력해주세요." required>
+                        <input type="text" class="form-control" id="phone" placeholder="전화번호를 입력해주세요." disabled>
                     </div>
                     <div class="col-sm-6">
                         <label for="postcode" class="form-label">우편번호</label>
-                        <input type="text" class="form-control" id="postcode" placeholder="우편번호를 입력해주세요." required>
+                        <input type="text" class="form-control" id="postcode" placeholder="우편번호를 입력해주세요." disabled>
                     </div>
                 </div>
                 <div class="col-12">
                     <label for="address" class="form-label">도로명 주소</label>
-                    <input type="text" class="form-control" id="address" placeholder="도로명 주소를 입력해주세요." required>
+                    <input type="text" class="form-control" id="address" placeholder="도로명 주소를 입력해주세요." disabled>
                 </div>
                 <div class="col-12">
                     <label for="detailedAddress" class="form-label">상세 주소</label>
-                    <input type="text" class="form-control" id="detailedAddress" placeholder="상세 주소를 입력해주세요." required>
+                    <input type="text" class="form-control" id="detailedAddress" placeholder="상세 주소를 입력해주세요." disabled>
                 </div>
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="startTime" class="form-label">운영시작 시간</label>
-                        <input type="time" class="form-control" id="startTime" required>
+                        <input type="time" class="form-control" id="startTime" disabled>
                     </div>
                     <div class="col-sm-6">
                         <label for="endTime" class="form-label">운영종료 시간</label>
-                        <input type="time" class="form-control" id="endTime" required>
+                        <input type="time" class="form-control" id="endTime" disabled>
                     </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="franchiseDate" class="form-label">가맹일</label>
-                        <input type="date" class="form-control" id="franchiseDate">
+                        <input type="date" class="form-control" id="franchiseDate" disabled>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="endTime" class="form-label">이미지 파일</label>
+                        <input type="file" class="form-control" id="fileImg" disabled>
                     </div>
                 </div>
             </div>
@@ -167,9 +150,8 @@
         </div>
     </div>
 </div>
-
-
 </body>
+
 <script>
     /* 모달 */
     $('tr td').on('click', function() {
