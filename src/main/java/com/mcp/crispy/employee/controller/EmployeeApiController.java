@@ -40,7 +40,7 @@ public class EmployeeApiController {
         return ResponseEntity.ok().body(Map.of("message", "인증 코드가 발송되었습니다."));
     }
 
-//    @IsOwner
+    //    @IsOwner
     @GetMapping("/{empNo}/v1")
     public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable Integer empNo) {
         EmployeeDto employee = employeeService.getEmployeeDetailsByEmpNo(empNo);
@@ -79,7 +79,7 @@ public class EmployeeApiController {
 
     @PostMapping(value = "/profileImg/v1", consumes = "multipart/form-data")
     public ResponseEntity<Map<String, String>> insertOrUpdateEmpProfile(@RequestParam("empNo") Integer empNo,
-                                                      @RequestPart(value = "file", required = false) MultipartFile file) {
+                                                                        @RequestPart(value = "file", required = false) MultipartFile file) {
         log.info("file: {}", file);
         try {
             employeeService.insertOrUpdateEmpProfile(empNo, file);
@@ -92,7 +92,7 @@ public class EmployeeApiController {
 
     @PutMapping("/empPhone/v1")
     public ResponseEntity<Map<String, String>> changeEmpPhone(@RequestBody EmployeeUpdateDto employeeUpdateDto,
-                                            Principal principal) {
+                                                              Principal principal) {
         String username = principal.getName();
         EmployeeDto employee = employeeService.getEmployeeName(username);
         employeeService.changeEmpPhone(employeeUpdateDto.getEmpPhone(), employeeUpdateDto.getEmpNo(), employee.getEmpNo());
@@ -101,7 +101,7 @@ public class EmployeeApiController {
 
     @PutMapping("/empName/v1")
     public ResponseEntity<Map<String, String>> changeEmpName(@RequestBody EmployeeUpdateDto employeeUpdateDto,
-                                           Principal principal) {
+                                                             Principal principal) {
         String username = principal.getName();
         EmployeeDto employee = employeeService.getEmployeeName(username);
         employeeService.changeEmpName(employeeUpdateDto.getEmpName(), employeeUpdateDto.getEmpNo(), employee.getEmpNo());
@@ -110,7 +110,7 @@ public class EmployeeApiController {
 
     @PutMapping("/posNo/v1")
     public ResponseEntity<Map<String, String>> changePosNo(@RequestBody EmployeeUpdateDto employeeUpdateDto,
-                                           Principal principal) {
+                                                           Principal principal) {
         String username = principal.getName();
         EmployeeDto employee = employeeService.getEmployeeName(username);
         log.info("PosNo: {}", employeeUpdateDto.getPosNo());
@@ -120,7 +120,7 @@ public class EmployeeApiController {
 
     @PutMapping("/empStat/v1")
     public ResponseEntity<Map<String, String>> changeEmpStat(@RequestBody EmployeeUpdateDto employeeUpdateDto,
-                                           Principal principal) {
+                                                             Principal principal) {
         EmployeeDto employee = employeeService.getEmployeeName(principal.getName());
         employeeService.changeEmpStat(employeeUpdateDto.getEmpStat().getValue(), employeeUpdateDto.getEmpNo(), employee.getEmpNo());
         log.info("empStatus: {}", employeeUpdateDto.getEmpStat());

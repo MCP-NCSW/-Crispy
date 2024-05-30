@@ -16,7 +16,7 @@ public interface EmployeeMapper {
 
 	Optional<EmployeeDto> findByUsername(String username);
 
-	List<EmployeeDto> findAllExceptCurrentUser(@Param("currentEmpNo") Integer empNo);
+	List<EmployeeDto> findAll();
 
 	Optional<EmployeeDto> findByEmployeeDetailsByEmpNo(Integer empNo);
 
@@ -58,8 +58,4 @@ public interface EmployeeMapper {
 
 	// 상태 변경
 	void updateEmpStat(@Param("empStat") EmpStatus empStat, @Param("modifier") Integer modifier, @Param("empNo") Integer empNo);
-
-	List<EmployeeDto> searchEmployees(@Param("empName") String empName, @Param("currentEmpNo") Integer empNo);
-
-	List<EmployeeDto> inviteEmployees(@Param("chatRoomNo") Integer chatRoomNo);
 }
