@@ -32,8 +32,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         String requestURI = request.getRequestURI();
-        log.info("Request URL: {}", requestURI);
-
         if (isExcludedPath(requestURI)) {
             chain.doFilter(request, response);
             return;
@@ -95,8 +93,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             long executionTime = System.currentTimeMillis() - start;
             log.info("요청 [{}] 완료: 실행 시간 {} ms", requestURI, executionTime);
         }
-
-        chain.doFilter(request, response);
     }
 
     private boolean isExcludedPath(String requestURI) {
