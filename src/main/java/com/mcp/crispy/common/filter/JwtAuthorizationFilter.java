@@ -34,6 +34,13 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         String requestURI = request.getRequestURI();
         log.info("Request URL: {}", requestURI);
 
+        if (isExcludedPath(requestURI)) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+
+
         String header = request.getHeader(JwtUtil.HEADER);
         if (header == null) {
             // 쿠키에서 토큰 가져오기
@@ -48,15 +55,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             }
         }
         log.info("Authorization Header: {}", header);
-
-        if (requestURI.equals("/crispy/api/auth/login/v1") ||
-                requestURI.startsWith("/css/") || requestURI.startsWith("/js/") || requestURI.startsWith("/img/") ||
-                requestURI.startsWith("/resources/") || requestURI.startsWith("/profiles/") || requestURI.startsWith("/upload/") ||
-                requestURI.startsWith("/franchise/") || requestURI.startsWith("/crispy_img/") ||
-                requestURI.equals("/crispy/login") || requestURI.equals("/crispy/")) {
-            chain.doFilter(request, response);
-            return;
-        }
 
         if (header != null && header.startsWith(JwtUtil.TOKEN_PREFIX)) {
             String token = header.replace(JwtUtil.TOKEN_PREFIX, "");
@@ -87,6 +85,35 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             }
         }
 
+        // 로깅 시작 시간
+        long start = System.currentTimeMillis();
+
+        try {
+            chain.doFilter(request, response);
+        } finally {
+            // 로깅 종료 시간 및 실행 시간 계산
+            long executionTime = System.currentTimeMillis() - start;
+            log.info("요청 [{}] 완료: 실행 시간 {} ms", requestURI, executionTime);
+        }
+
         chain.doFilter(request, response);
+    }
+
+    private boolean isExcludedPath(String requestURI) {
+        return requestURI.equals("/") ||
+                requestURI.equals("/crispy") ||
+                requestURI.equals("/crispy/") ||
+                requestURI.equals("/CRISPY") ||
+                requestURI.equals("/CRISPY/") ||
+                requestURI.equals("/crispy/api/auth/login/v1") ||
+                requestURI.startsWith("/css/") ||
+                requestURI.startsWith("/js/") ||
+                requestURI.startsWith("/img/") ||
+                requestURI.startsWith("/resources/") ||
+                requestURI.startsWith("/profiles/") ||
+                requestURI.startsWith("/upload/") ||
+                requestURI.startsWith("/franchise/") ||
+                requestURI.startsWith("/crispy_img/") ||
+                requestURI.equals("/crispy/login");
     }
 }
