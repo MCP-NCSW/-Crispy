@@ -44,9 +44,9 @@
 
     <resultMap id="NotifyResultMap" type="com.mcp.crispy.notification.dto.NotifyDto">
         <id column="NOTIFY_NO" property="notifyNo"/>
-        <result column="NOTIFY_CT" property="notifyCt" typeHandler="com.mcp.crispy.common.typehandler.NotifyCtTypeHandler"/>
+        <result column="NOTIFY_CT" property="notifyCt" typeHandler="com.mcp.crispy.common.typeHandler.NotifyCtTypeHandler"/>
         <result column="NOTIFY_CONTENT" property="notifyContent"/>
-        <result column="NOTIFY_STAT" property="notifyStat" typeHandler="com.mcp.crispy.common.typehandler.NotifyStatTypeHandler"/>
+        <result column="NOTIFY_STAT" property="notifyStat" typeHandler="com.mcp.crispy.common.typeHandler.NotifyStatTypeHandler"/>
         <result column="EMP_NO" property="empNo"/>
     </resultMap>
 </mapper>
